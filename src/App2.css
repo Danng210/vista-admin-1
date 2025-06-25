@@ -1,0 +1,249 @@
+/* -------- DISEÑO AÑADIR PRODUCTO -------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+}
+
+.app-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px; /* Increased max-width for two columns */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column; /* Changed to column to stack title and grid */
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two columns of equal width */
+  gap: 30px; /* Space between columns */
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.select-field {
+  /* Specific styles for select if needed */
+  -webkit-appearance: none; /* Remove default arrow on WebKit browsers */
+  -moz-appearance: none; /* Remove default arrow on Firefox */
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%23666' d='M8 12l-5-5h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  padding-right: 35px; /* Make space for the custom arrow */
+}
+
+.textarea-field {
+  resize: vertical; /* Allow vertical resizing */
+  min-height: 80px; /* Minimum height for description */
+}
+
+.file-upload-area {
+  width: 100%;
+  height: 200px; /* Fixed height for the main photo upload area */
+  border: 2px dashed #d0d0d0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.file-upload-area.small {
+  height: 100px; /* Smaller height for 3D model upload area */
+}
+
+.file-upload-area:hover,
+.file-upload-area.drag-over {
+  border-color: #4CAF50;
+  background-color: #f0fdf0;
+}
+
+.placeholder-content {
+  text-align: center;
+  color: #a0a0a0;
+}
+
+.upload-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.upload-icon-small {
+  font-size: 32px; /* Smaller icon for 3D model */
+  margin-bottom: 5px;
+  display: block;
+}
+
+.file-upload-area p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.file-name {
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+    word-break: break-all; /* Ensures long file names wrap */
+    text-align: center;
+    padding: 0 10px;
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.add-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #FF5722;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 30px; /* More space below the grid */
+  box-shadow: 0 4px 10px rgba(255, 87, 34, 0.3);
+}
+
+.add-button:hover {
+  background-color: #e64a19;
+  transform: translateY(-2px);
+}
+
+.add-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(255, 87, 34, 0.4);
+}
+
+/* Back arrow styling */
+.back-arrow {
+  position: absolute;
+  left: 30px; /* Adjust as needed */
+  top: 30px; /* Adjust as needed */
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+  padding: 10px;
+  display: none; /* Hidden by default, enable if needed */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .content-grid {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+  }
+
+  .card {
+    padding: 20px;
+    margin: 10px;
+    max-width: 100%; /* Allow card to take full width */
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .input-field,
+  .add-button {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .label {
+    font-size: 15px;
+  }
+
+  .file-upload-area,
+  .file-upload-area.small {
+    height: 150px; /* Adjust height for smaller screens */
+  }
+
+  .upload-icon {
+    font-size: 40px;
+  }
+
+  .upload-icon-small {
+    font-size: 28px;
+  }
+
+  .file-upload-area p {
+    font-size: 14px;
+  }
+
+  .add-button {
+    margin-top: 20px;
+  }
+}
