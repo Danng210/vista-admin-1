@@ -14,7 +14,7 @@ function App() {
   const categories = [
     { id: 1, name: 'Entradas', imageUrl: 'https://placehold.co/300x200/cccccc/ffffff?text=Entradas' },
     { id: 2, name: 'Platos fuertes', imageUrl: 'https://placehold.co/300x200/cccccc/ffffff?text=Platos+Fuertes' },
-    { id: 3, name: 3, name: 'Postres', imageUrl: 'https://placehold.co/300x200/cccccc/ffffff?text=Postres' },
+    { id: 3, name: 'Postres', imageUrl: 'https://placehold.co/300x200/cccccc/ffffff?text=Postres' },
   ];
 
   const handleImageChange = (event) => {
